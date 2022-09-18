@@ -1,10 +1,10 @@
-tests/geckodriver
+/tests/geckodriver
 venv
-.idea/
+.idea
 *.iml
 .pytest_cache/
-__pycache__/
-__init__.py
-tests/geckodriver.log
-pages/geckodriver
-pages/geckodriver.log
+__pycache__
+/tests/__init__.py
+/tests/geckodriver.log
+/pages/geckodriver
+/pages/geckodriver.log
