@@ -4,7 +4,6 @@ from selenium.webdriver.support import expected_conditions
 import allure
 from pages.base import BasePage
 
-
 class PersonalData:
 
     name = [By.XPATH, '//*[@id="root"]/div/div[2]/div[2]/div[1]/input']
@@ -22,6 +21,7 @@ class PersonalData:
 
     @allure.step('Открываем сайт')
     def open_site(self):
+
         base = BasePage(self.driver)
         base.open_order_page()
 

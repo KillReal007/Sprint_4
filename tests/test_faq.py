@@ -43,6 +43,7 @@ class TestQuestions:
     @allure.title('Инициализируем драйвер')
     @pytest.fixture(scope='class', autouse=True)
     def setup_and_teardown(self, request):
+
         firefox_option = webdriver.FirefoxOptions()
         driver = webdriver.Firefox(options=firefox_option)
         driver.implicitly_wait(1)

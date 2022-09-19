@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 import allure
 from pages.base import BasePage
 
+
 class ButtonOrder:
 
     button = [By.XPATH, '//*[@id="root"]/div/div/div[1]/div[2]/button[1]']
@@ -99,8 +100,10 @@ class HomePage:
 
     @allure.step('Открываем главную страницу заказа самоката')
     def open_page_scooter(self):
+    
         base = BasePage(self.driver)
         base.open_home_page()
+
 
     @allure.step('Нажимаем на кнопку "Заказать"')
     def click_button_order(self):
