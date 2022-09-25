@@ -2,6 +2,7 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions
 import allure
+from pages.base import BasePage
 
 
 class PersonalData:
@@ -21,7 +22,8 @@ class PersonalData:
 
     @allure.step('Открываем сайт')
     def open_site(self):
-        self.driver.get('https://qa-scooter.praktikum-services.ru/order')
+        base = BasePage(self.driver)
+        base.open_order_page()
 
     @allure.step('Вводим имя')
     def fill_name(self, name):

@@ -1,5 +1,6 @@
 from selenium.webdriver.common.by import By
 import allure
+from pages.base import BasePage
 
 class ButtonOrder:
 
@@ -31,12 +32,15 @@ class Cookies:
 
 
 class FaqQuestions:
-
-    headers = [By.XPATH, '//*[@id="root"]/div/div/div[5]/div[2]']
-    questions = [By.XPATH, '//*[@id="root"]//div[@class="accordion"]//div[@class="accordion__item"]']
-    question_button = [By.CLASS_NAME, 'accordion__button']
-    answer = [By.CLASS_NAME, 'accordion__panel']
-    faq_items = []
+    header = [By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]']
+    first_question = [By.CSS_SELECTOR, '#accordion__heading-0']
+    second_question = [By.CSS_SELECTOR, '#accordion__heading-1']
+    third_question = [By.CSS_SELECTOR, '#accordion__heading-2']
+    fourth_question = [By.CSS_SELECTOR, '#accordion__heading-3']
+    fifth_question = [By.CSS_SELECTOR, '#accordion__heading-4']
+    sixth_question = [By.CSS_SELECTOR, '#accordion__heading-5']
+    seventh_question = [By.CSS_SELECTOR, '#accordion__heading-6']
+    eighth_question = [By.CSS_SELECTOR, '#accordion__heading-7']
 
     @allure.step('Инициализируем драйвер в объекте FaqQuestions')
     def __init__(self, driver):
@@ -44,46 +48,44 @@ class FaqQuestions:
 
     @allure.step('Ищем заголовок FAQ')
     def get_header(self):
-        return self.driver.find_element(*self.headers)
+        return self.driver.find_element(*self.header)
 
     @allure.step('Скролл к списку FAQ')
     def scroll_to_header(self):
         header = self.get_header()
         self.driver.execute_script('arguments[0].scrollIntoView();', header)
 
-    @allure.step('Возвращаем вопросы из FAQ')
-    def get_questions(self):
-        return self.driver.find_elements(*self.questions)
+    @allure.step('Нажимаем на первый вопрос')
+    def click_first_question(self):
+        self.driver.find_element(*self.first_question).click()
 
-    @allure.step('Получаем пункт FAQ по вопросу')
-    def get_faq_by_question(self, question):
-        try:
-            return self.driver.find_element(By.XPATH,f'//*[@class="accordion__button" and text()='f'"{question}"]/parent::*/parent::*')
-        except AttributeError:
-            return None
+    @allure.step('Нажимаем на второй вопрос')
+    def click_second_question(self):
+        self.driver.find_element(*self.second_question).click()
 
-    @allure.step('Находим кнопку в пункте FAQ')
-    def get_question_button(self, question):
-        return question.find_element(*self.question_button)
+    @allure.step('Нажимаем на третий вопрос')
+    def click_third_question(self):
+        self.driver.find_element(*self.third_question).click()
 
-    @allure.step('Раскрываем пункт в списке FAQ')
-    def click_question_button(self, question):
-        self.get_question_button(question).click()
+    @allure.step('Нажимаем на четвертый вопрос')
+    def click_fourth_question(self):
+        self.driver.find_element(*self.fourth_question).click()
 
-    @allure.step('Получаем ответ')
-    def get_answer(self, question):
-        answer = question.find_element(*self.answer)
-        return answer.find_element(By.XPATH, './/p').text
+    @allure.step('Нажимаем на пятый вопрос')
+    def click_fifth_question(self):
+        self.driver.find_element(*self.fifth_question).click()
 
-    @allure.step('Сохраняем данные списка FAQ')
-    def get_faq(self):
-        questions = self.get_questions()
-        for question in questions:
-            self.click_question_button(question)
-            self.driver.implicitly_wait(1)
-            question_text, answer_text = question.text.split('\n')
-            self.faq_items.append({'question': question_text, 'answer': answer_text})
-        return self.faq_items
+    @allure.step('Нажимаем на шестой вопрос')
+    def click_sixth_question(self):
+        self.driver.find_element(*self.sixth_question).click()
+
+    @allure.step('Нажимаем на седьмой вопрос')
+    def click_seventh_question(self):
+        self.driver.find_element(*self.seventh_question).click()
+
+    @allure.step('Нажимаем на восьмой вопрос')
+    def click_eighth_question(self):
+        self.driver.find_element(*self.eighth_question).click()
 
 
 class HomePage:
@@ -98,7 +100,8 @@ class HomePage:
 
     @allure.step('Открываем главную страницу заказа самоката')
     def open_page_scooter(self):
-        self.driver.get('https://qa-scooter.praktikum-services.ru/')
+        base = BasePage(self.driver)
+        base.open_home_page()
 
     @allure.step('Нажимаем на кнопку "Заказать"')
     def click_button_order(self):
