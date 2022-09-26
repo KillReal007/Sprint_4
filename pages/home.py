@@ -42,6 +42,7 @@ class FaqQuestions:
     seventh_question = [By.CSS_SELECTOR, '#accordion__heading-6']
     eighth_question = [By.CSS_SELECTOR, '#accordion__heading-7']
 
+
     first_answer = [By.CSS_SELECTOR, '#accordion__panel-0 > p']
     second_answer = [By.CSS_SELECTOR, '#accordion__panel-1 > p']
     third_answer = [By.CSS_SELECTOR, '#accordion__panel-2 > p']

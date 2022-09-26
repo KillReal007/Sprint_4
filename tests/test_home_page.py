@@ -42,6 +42,7 @@ class TestHomePage:
         assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.second_question)))
         assert click.second_answer
 
+
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем третий вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')
