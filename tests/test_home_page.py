@@ -25,7 +25,8 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_first_question()
-        assert self.driver.find_element(By.XPATH, '//*[@id="accordion__panel-0"]/p')
+        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.first_question)))
+        assert click.first_answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем второй вопрос и его ответ на соответствие')
@@ -38,7 +39,9 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_second_question()
-        assert self.driver.find_element(By.XPATH, '//*[@id="accordion__panel-1"]/p')
+        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.second_question)))
+        assert click.second_answer
+
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем третий вопрос и его ответ на соответствие')
@@ -51,7 +54,8 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_third_question()
-        assert self.driver.find_element(By.XPATH, '//*[@id="accordion__panel-2"]/p')
+        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.third_question)))
+        assert click.third_answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем четвертый вопрос и его ответ на соответствие')
@@ -64,7 +68,8 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_fourth_question()
-        assert self.driver.find_element(By.XPATH, '//*[@id="accordion__panel-3"]/p')
+        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.fourth_question)))
+        assert click.fourth_answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем пятый вопрос и его ответ на соответствие')
@@ -77,7 +82,8 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_fifth_question()
-        assert self.driver.find_element(By.XPATH, '//*[@id="accordion__panel-4"]/p')
+        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.fifth_question)))
+        assert click.fifth_answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем шестой вопрос и его ответ на соответствие')
@@ -90,7 +96,8 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_sixth_question()
-        assert self.driver.find_element(By.XPATH, '//*[@id="accordion__panel-5"]/p')
+        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.sixth_question)))
+        assert click.sixth_answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем седьмой вопрос и его ответ на соответствие')
@@ -103,7 +110,8 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_seventh_question()
-        assert self.driver.find_element(By.XPATH, '//*[@id="accordion__panel-6"]/p')
+        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.seventh_question)))
+        assert click.seventh_answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем восьмой вопрос и его ответ на соответствие')
@@ -116,7 +124,8 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_eighth_question()
-        assert self.driver.find_element(By.XPATH, '//*[@id="accordion__panel-7"]/p')
+        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.eighth_question)))
+        assert click.eighth_answer
 
     @allure.testcase('Нажимаем на логотип Самокат')
     @allure.description('Проверяем переход на главную страницу сервера по клику на лого Самокат')

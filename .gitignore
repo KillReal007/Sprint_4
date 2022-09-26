@@ -8,3 +8,4 @@ __pycache__
 /tests/geckodriver.log
 /pages/geckodriver
 /pages/geckodriver.log
+*.exe

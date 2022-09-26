@@ -42,6 +42,17 @@ class FaqQuestions:
     seventh_question = [By.CSS_SELECTOR, '#accordion__heading-6']
     eighth_question = [By.CSS_SELECTOR, '#accordion__heading-7']
 
+
+    first_answer = [By.CSS_SELECTOR, '#accordion__panel-0 > p']
+    second_answer = [By.CSS_SELECTOR, '#accordion__panel-1 > p']
+    third_answer = [By.CSS_SELECTOR, '#accordion__panel-2 > p']
+    fourth_answer = [By.CSS_SELECTOR, '#accordion__panel-3 > p']
+    fifth_answer = [By.CSS_SELECTOR, '#accordion__panel-4 > p']
+    sixth_answer = [By.CSS_SELECTOR, '#accordion__panel-5 > p']
+    seventh_answer = [By.CSS_SELECTOR, '#accordion__panel-6 > p']
+    eighth_answer = [By.CSS_SELECTOR, '#accordion__panel-7 > p']
+
+
     @allure.step('Инициализируем драйвер в объекте FaqQuestions')
     def __init__(self, driver):
         self.driver = driver
