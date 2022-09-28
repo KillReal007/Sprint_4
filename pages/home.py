@@ -1,4 +1,6 @@
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions
 import allure
 from pages.base import BasePage
 
@@ -42,7 +44,6 @@ class FaqQuestions:
     seventh_question = [By.CSS_SELECTOR, '#accordion__heading-6']
     eighth_question = [By.CSS_SELECTOR, '#accordion__heading-7']
 
-
     first_answer = [By.CSS_SELECTOR, '#accordion__panel-0 > p']
     second_answer = [By.CSS_SELECTOR, '#accordion__panel-1 > p']
     third_answer = [By.CSS_SELECTOR, '#accordion__panel-2 > p']
@@ -68,35 +69,84 @@ class FaqQuestions:
 
     @allure.step('Нажимаем на первый вопрос')
     def click_first_question(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.first_question)))
         self.driver.find_element(*self.first_question).click()
+
+    @allure.step('Получаем ответ на первый вопрос')
+    def click_first_answer(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.first_answer)))
+        return self.driver.find_element(*self.first_answer).text
 
     @allure.step('Нажимаем на второй вопрос')
     def click_second_question(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.second_question)))
         self.driver.find_element(*self.second_question).click()
+
+    @allure.step('Получаем ответ на второй вопрос')
+    def click_second_answer(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.second_answer)))
+        return self.driver.find_element(*self.second_answer).text
 
     @allure.step('Нажимаем на третий вопрос')
     def click_third_question(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.third_question)))
         self.driver.find_element(*self.third_question).click()
+
+    @allure.step('Получаем ответ на третий вопрос')
+    def click_third_answer(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.third_answer)))
+        return self.driver.find_element(*self.third_answer).text
 
     @allure.step('Нажимаем на четвертый вопрос')
     def click_fourth_question(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.fourth_question)))
         self.driver.find_element(*self.fourth_question).click()
+
+    @allure.step('Получаем ответ на четвертый вопрос')
+    def click_fourth_answer(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.fourth_answer)))
+        return self.driver.find_element(*self.fourth_answer).text
 
     @allure.step('Нажимаем на пятый вопрос')
     def click_fifth_question(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.fifth_question)))
         self.driver.find_element(*self.fifth_question).click()
+
+    @allure.step('Получаем ответ на пятый вопрос')
+    def click_fifth_answer(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.fifth_answer)))
+        return self.driver.find_element(*self.fifth_answer).text
 
     @allure.step('Нажимаем на шестой вопрос')
     def click_sixth_question(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.sixth_question)))
         self.driver.find_element(*self.sixth_question).click()
+
+    @allure.step('Получаем ответ на шестой вопрос')
+    def click_sixth_answer(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.sixth_answer)))
+        return self.driver.find_element(*self.sixth_answer).text
 
     @allure.step('Нажимаем на седьмой вопрос')
     def click_seventh_question(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.seventh_question)))
         self.driver.find_element(*self.seventh_question).click()
+
+    @allure.step('Получаем ответ на седьмой вопрос')
+    def click_seventh_answer(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.seventh_answer)))
+        return self.driver.find_element(*self.seventh_answer).text
 
     @allure.step('Нажимаем на восьмой вопрос')
     def click_eighth_question(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.eighth_question)))
         self.driver.find_element(*self.eighth_question).click()
+
+    @allure.step('Получаем ответ на восьмой вопрос')
+    def click_eighth_answer(self):
+        WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((self.eighth_answer)))
+        return self.driver.find_element(*self.eighth_answer).text
+
 
 
 class HomePage:

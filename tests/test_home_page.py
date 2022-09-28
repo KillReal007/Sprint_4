@@ -18,6 +18,7 @@ class TestHomePage:
     @allure.description('Проверяем первый вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')
     def test_answer_first_question(self):
+        answer = 'Сутки — 400 рублей. Оплата курьеру — наличными или картой.'
         click = FaqQuestions(self.driver)
         base = BasePage(self.driver)
         base.open_home_page()
@@ -25,13 +26,13 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_first_question()
-        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.first_question)))
-        assert click.first_answer
+        assert click.click_first_answer() == answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем второй вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')
     def test_answer_second_question(self):
+        answer = 'Пока что у нас так: один заказ — один самокат. Если хотите покататься с друзьями, можете просто сделать несколько заказов — один за другим.'
         click = FaqQuestions(self.driver)
         base = BasePage(self.driver)
         base.open_home_page()
@@ -39,14 +40,13 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_second_question()
-        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.second_question)))
-        assert click.second_answer
-
+        assert click.click_second_answer() == answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем третий вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')
     def test_answer_third_question(self):
+        answer = 'Допустим, вы оформляете заказ на 8 мая. Мы привозим самокат 8 мая в течение дня. Отсчёт времени аренды начинается с момента, когда вы оплатите заказ курьеру. Если мы привезли самокат 8 мая в 20:30, суточная аренда закончится 9 мая в 20:30.'
         click = FaqQuestions(self.driver)
         base = BasePage(self.driver)
         base.open_home_page()
@@ -54,13 +54,13 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_third_question()
-        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.third_question)))
-        assert click.third_answer
+        assert click.click_third_answer() == answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем четвертый вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')
     def test_answer_fourth_question(self):
+        answer = 'Только начиная с завтрашнего дня. Но скоро станем расторопнее.'
         click = FaqQuestions(self.driver)
         base = BasePage(self.driver)
         base.open_home_page()
@@ -68,13 +68,13 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_fourth_question()
-        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.fourth_question)))
-        assert click.fourth_answer
+        assert click.click_fourth_answer() == answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем пятый вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')
     def test_answer_fifth_question(self):
+        answer = 'Пока что нет! Но если что-то срочное — всегда можно позвонить в поддержку по красивому номеру 1010.'
         click = FaqQuestions(self.driver)
         base = BasePage(self.driver)
         base.open_home_page()
@@ -82,13 +82,13 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_fifth_question()
-        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.fifth_question)))
-        assert click.fifth_answer
+        assert click.click_fifth_answer() == answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем шестой вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')
     def test_answer_sixth_question(self):
+        answer = 'Самокат приезжает к вам с полной зарядкой. Этого хватает на восемь суток — даже если будете кататься без передышек и во сне. Зарядка не понадобится.'
         click = FaqQuestions(self.driver)
         base = BasePage(self.driver)
         base.open_home_page()
@@ -96,13 +96,13 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_sixth_question()
-        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.sixth_question)))
-        assert click.sixth_answer
+        assert click.click_sixth_answer() == answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем седьмой вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')
     def test_answer_seventh_question(self):
+        answer = 'Да, пока самокат не привезли. Штрафа не будет, объяснительной записки тоже не попросим. Все же свои.'
         click = FaqQuestions(self.driver)
         base = BasePage(self.driver)
         base.open_home_page()
@@ -110,13 +110,13 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_seventh_question()
-        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.seventh_question)))
-        assert click.seventh_answer
+        assert click.click_seventh_answer() == answer
 
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем восьмой вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')
     def test_answer_eighth_question(self):
+        answer = 'Да, обязательно. Всем самокатов! И Москве, и Московской области.'
         click = FaqQuestions(self.driver)
         base = BasePage(self.driver)
         base.open_home_page()
@@ -124,8 +124,7 @@ class TestHomePage:
         click.scroll_to_header()
         WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((By.XPATH, '//*[@id="root"]//div[text()="Вопросы о важном"]')))
         click.click_eighth_question()
-        assert WebDriverWait(self.driver, 5).until(expected_conditions.visibility_of_element_located((click.eighth_question)))
-        assert click.eighth_answer
+        assert click.click_eighth_answer() == answer
 
     @allure.testcase('Нажимаем на логотип Самокат')
     @allure.description('Проверяем переход на главную страницу сервера по клику на лого Самокат')
