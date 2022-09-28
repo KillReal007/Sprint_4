@@ -28,7 +28,6 @@ class TestHomePage:
         click.click_first_question()
         assert click.click_first_answer() == answer
 
-
     @allure.title('Проверка вопроса FAQ')
     @allure.description('Проверяем второй вопрос и его ответ на соответствие')
     @allure.step('Сравниваем ожидаемые и актуальные данные')

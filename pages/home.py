@@ -148,6 +148,7 @@ class FaqQuestions:
         return self.driver.find_element(*self.eighth_answer).text
 
 
+
 class HomePage:
     button_order = [By.XPATH, '//*[@id="root"]/div/div[1]/div[1]/div[2]/button[1]']
     scooter_link = [By.XPATH, '/html/body/div/div/div[1]/div[1]/a[2]/img']
